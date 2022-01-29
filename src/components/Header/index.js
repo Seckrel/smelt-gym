@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import {
     AppBar, Container, Toolbar, Typography,
-    Box, Button
+    Box
 } from '@mui/material'
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import DrawerComponent from './DrawerComponent';
 import Link from '../../Link'
-import { makeStyles, useTheme } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,10 +26,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header() {
-    const theme = useTheme()
     const NAV_ITEMS = ['Products', 'Pricing', 'Blog'];
     const [drawerState, setDrawerState] = useState(false);
     const classes = useStyles();
+    const styleLogo = {
+        letterSpacing: '0.9rem'
+    }
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -46,7 +48,7 @@ export default function Header() {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, letterSpacing: '0.9rem' }}
+                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, ...styleLogo }}
                     >
                         {process.env.LOGO}.com
                     </Typography>
@@ -66,15 +68,16 @@ export default function Header() {
                         <DrawerComponent
                             open={drawerState} toggleDrawer={toggleDrawer}
                             nav_items={NAV_ITEMS}
+                            classesLink={classes}
                         />
                     </Box>
                     <Typography
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, ...styleLogo }}
                     >
-                        LOGO
+                        {process.env.LOGO}.com
                     </Typography>
 
                     {/* Code for desktop nav */}
