@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 
+
 // Create a theme instance.
 const theme = createTheme({
   palette: {
@@ -14,6 +15,16 @@ const theme = createTheme({
     error: {
       main: red.A400,
     },
+  },
+  typography: {
+    h2: {
+      fontFamily: [
+        '"Permanent Marker"',
+        '"cursive"',
+        '"Roboto"',
+        '"Helvetica"',
+      ].join(','),
+    }
   },
 });
 

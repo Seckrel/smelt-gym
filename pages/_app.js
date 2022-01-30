@@ -4,6 +4,7 @@ import { CacheProvider } from '@emotion/react';
 import theme from '../src/theme';
 import createEmotionCache from '../src/createEmotionCache';
 import { CssBaseline } from '@mui/material';
+import Layout from '../src/components/layout';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -12,7 +13,9 @@ function MyApp({ Component, pageProps }) {
     <CacheProvider value={clientSideEmotionCache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </CacheProvider>
   )

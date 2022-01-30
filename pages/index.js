@@ -1,8 +1,11 @@
-import Header from '../src/components/Header'
+import ShowCase from "../src/components/ShowCase";
+
 
 
 export default function Home() {
   return (
-   <Header />
+   <>
+    <ShowCase />
+   </>
   )
 }
