@@ -19,6 +19,7 @@ export default function ShowCase() {
                     backgroundPosition: 'center',
                     backgroundSize: `cover`,
                     width: "100%",
+                    borderRadius: '0px 0px 5px 5px',
                     height: {
                         md: BGIMAGEHEIGHT.md,
                         sm: BGIMAGEHEIGHT.sm,

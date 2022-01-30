@@ -24,6 +24,14 @@ const theme = createTheme({
         '"Roboto"',
         '"Helvetica"',
       ].join(','),
+    },
+    h4: {
+      fontFamily: [
+        "'Gloria Hallelujah'",
+        "'cursive'",
+        '"Roboto"',
+        '"Helvetica"',
+      ].join(' ,'),
     }
   },
 });
