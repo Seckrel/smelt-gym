@@ -1,10 +1,12 @@
 import {
-    Container, Box, Grid, Typography
+    Container, Grid, Typography,
+    Box
 } from '@mui/material';
-import Stories from './StoriesComponent';
 import { useStyles } from '../../muiStyles/styles';
+import Services from './ServicesComponent';
 
-export default function () {
+
+export default function OurServices() {
     const classes = useStyles();
     return (
         <Container maxWidth="xl" disableGutters>
@@ -15,12 +17,12 @@ export default function () {
                         component={'div'}
                         className={classes.sectionH4}
                     >
-                        New Stories
+                        Our Services
                     </Typography>
                 </Grid>
                 <Grid item xs={12}>
                     <Box pt={2} pb={4} px={{ xs: 0, md: 2 }}>
-                        <Stories />
+                        <Services />
                     </Box>
                 </Grid>
             </Grid>

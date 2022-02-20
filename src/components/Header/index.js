@@ -8,6 +8,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import DrawerComponent from './DrawerComponent';
 import Link from '../../Link'
 import { makeStyles } from '@mui/styles';
+import { NAV_ITEMS } from '../../constants/NAV_ITEMS';
+import { camelCase } from '../../utils/utils';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header() {
-    const NAV_ITEMS = ['Products', 'Pricing', 'Blog'];
+    // const NAV_ITEMS = ['Products', 'Pricing', 'Blog'];
     const [drawerState, setDrawerState] = useState(false);
     const classes = useStyles();
     const styleLogo = {
@@ -44,14 +46,16 @@ export default function Header() {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, ...styleLogo }}
-                    >
-                        {process.env.LOGO}.com
-                    </Typography>
+                    <Link href="/" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, ...styleLogo, color: 'black' }}
+                        >
+                            {process.env.LOGO}.com
+                        </Typography>
+                    </Link>
 
                     {/* Code for mobile nav and Logo */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -84,7 +88,7 @@ export default function Header() {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row-reverse' }}>
                         {NAV_ITEMS.map((page) => (
                             <Link
-                                href={page}
+                                href={camelCase(page)}
                                 key={page}
                                 sx={{ my: 2, display: 'block', }}
                                 classes={classes}

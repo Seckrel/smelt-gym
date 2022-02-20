@@ -3,6 +3,7 @@ import {
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Link from '../../Link'
+import { camelCase } from '../../utils/utils';
 
 
 
@@ -30,7 +31,7 @@ const ListDrawer = ({ toggleDrawer, nav_items, classes }) => {
                         <ListItemText
                         >
                             <Link
-                                href={text}
+                                href={camelCase(text)}
                                 classes={classes}
                                 sx={{ my: 2, display: 'block', }}
                                 underline="none"
