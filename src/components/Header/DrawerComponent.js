@@ -20,7 +20,9 @@ const ListDrawer = ({ toggleDrawer, nav_items, classes }) => {
     const width = 250
     return (
         <Box
-            sx={{ width: width }}
+            sx={{
+                width: width,
+            }}
             role="presentation"
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}

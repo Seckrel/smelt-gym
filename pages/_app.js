@@ -7,6 +7,7 @@ import { CssBaseline } from '@mui/material';
 import Layout from '../src/components/layout';
 import { StylesProvider, createGenerateClassName } from '@mui/styles';
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -30,16 +31,22 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <StylesProvider generateClassName={generateClassName}>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <CacheProvider value={clientSideEmotionCache}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
+        <StylesProvider generateClassName={generateClassName}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ThemeProvider>
+        </StylesProvider>
       </CacheProvider>
-    </StylesProvider>
+    </>
+
   )
 }
 

@@ -53,7 +53,7 @@ export default function Header() {
                             component="div"
                             sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, ...styleLogo, color: 'black' }}
                         >
-                            {process.env.LOGO}.com
+                            {process.env.LOGO}
                         </Typography>
                     </Link>
 
@@ -81,7 +81,7 @@ export default function Header() {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, ...styleLogo }}
                     >
-                        {process.env.LOGO}.com
+                        {process.env.LOGO}
                     </Typography>
 
                     {/* Code for desktop nav */}
